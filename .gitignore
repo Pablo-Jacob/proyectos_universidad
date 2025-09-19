@@ -1,0 +1,22 @@
+# =========================
+# Archivos de entorno
+# =========================
+.env
+
+# =========================
+# Dependencias
+# =========================
+node_modules/
+
+# =========================
+# Archivos temporales del sistema
+# =========================
+*.log
+.DS_Store
+Thumbs.db
+
+# =========================
+# Archivos propios de guía personal
+# =========================
+estructure.txt
+information.txt
