@@ -20,7 +20,7 @@ for each row
 begin
 	-- insertar valores antiguos
     insert into bitacora_productos(id_producto, descripcion, precio_unitario, usuario, operacion)
-		values(old.id_producto, odl.descripcion, old.precio_unitario, @usuario_actual, 'UPDATE');
+		values(old.id_producto, old.descripcion, old.precio_unitario, @usuario_actual, 'UPDATE');
 	-- insertar valores nuevos
     insert into bitacora_productos(id_producto, descripcion, precio_unitario, usuario, operacion)
 		values(new.id_producto, new.descripcion, new.precio_unitario, @usuario_actual, 'UPDATE');

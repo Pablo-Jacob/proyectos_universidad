@@ -97,4 +97,5 @@ begin
     commit;
     
     select p_id_venta as id_venta, 'Venta eliminada correctamente' as mensaje;
+end //
 delimiter ;

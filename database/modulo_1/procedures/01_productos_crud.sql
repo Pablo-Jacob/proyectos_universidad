@@ -4,7 +4,7 @@
  * Descripción: CRUD (Create, Read, Update, Delete) de productos.
  */
 drop procedure if exists create_producto;
-drop procedure if exists read_prouducto;
+drop procedure if exists read_producto;
 drop procedure if exists read_productos;
 drop procedure if exists update_producto;
 drop procedure if exists delete_producto;
@@ -28,7 +28,7 @@ begin
     select v_id_producto as id_producto, 'Producto insertado exitosamente' as mensaje;
 end //
 
-create procedure read_prouducto(in p_id_producto int)
+create procedure read_producto(in p_id_producto int)
 begin
     -- verificar si el producto existe
     call producto_no_existe(p_id_producto);

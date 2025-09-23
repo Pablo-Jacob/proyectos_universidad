@@ -1,7 +1,7 @@
 {
   "name": "integrated_management_system",
   "version": "1.0.0",
-  "description": "",
+  "description": "Proyecto backend de integración de Node.js con MySQL",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
