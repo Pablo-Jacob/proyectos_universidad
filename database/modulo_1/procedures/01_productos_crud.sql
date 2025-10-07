@@ -1,6 +1,6 @@
 -- database/modulo_1/procedures/01_productos_crud.sql
 /*
- * Script: Creación de procedimiento almacenado.
+ * Script: Creación de procedimientos almacenados.
  * Descripción: CRUD (Create, Read, Update, Delete) de productos.
  */
 drop procedure if exists create_producto;
@@ -25,7 +25,8 @@ begin
 	
     set v_id_producto = last_insert_id();
     
-    select v_id_producto as id_producto, 'Producto insertado exitosamente' as mensaje;
+    select v_id_producto as id_producto, p_descripcion as descripcion, p_precio_unitario
+		as precio_unitario;
 end //
 
 create procedure read_producto(in p_id_producto int)
@@ -34,8 +35,9 @@ begin
     call producto_no_existe(p_id_producto);
     
     select id_producto, descripcion, precio_unitario, date_format((select max(fecha_hora)
-		from bitacora_productos where id_producto = p_id_producto), '%Y-%m-%d %H:%i:%s')
-		as ultima_modificacion from productos where id_producto = p_id_producto;
+		from bitacora_productos where id_producto = p_id_producto),
+        '%Y-%m-%d %H:%i:%s') as ultima_modificacion from productos where id_producto =
+        p_id_producto;
 end //
 
 create procedure read_productos()
@@ -58,7 +60,8 @@ begin
     update productos set descripcion = p_descripcion, precio_unitario = p_precio_unitario
 		where id_producto = p_id_producto;
         
-	select p_id_producto as id_producto, 'Producto actualizado exitosamente' as mensaje;
+	select p_id_producto as id_producto, p_descripcion as descripcion, p_precio_unitario
+		as precio_unitario;
 end //
 
 create procedure delete_producto(in p_id_producto int)
@@ -76,6 +79,6 @@ begin
     -- eliminar producto
     delete from productos where id_producto = p_id_producto;
     
-    select p_id_producto as id_producto, 'Producto eliminado exitosamente' as mensaje;
+    select p_id_producto as id_producto;
 end //
 delimiter ;

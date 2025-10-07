@@ -28,22 +28,6 @@ const VentasModel = {
         const query = 'call read_ventas(?, ?)';
         const [results] = await db.query(query, [fechaInicio, fechaFin]);
         return results[0];
-    },
-    /**
-     * Actualizar fecha de venta
-     */
-    actualizarVenta: async(idVenta, fecha) => {
-        const query = 'call update_venta(?, ?)';
-        const [results] = await db.query(query, [idVenta, fecha]);
-        return results[0][0];
-    },
-    /**
-     * Eliminar venta
-     */
-    eliminarVenta: async(idVenta) => {
-        const query = 'call delete_venta(?)';
-        const [results] = await db.query(query, [idVenta]);
-        return results[0][0];
     }
 };
 module.exports = VentasModel;

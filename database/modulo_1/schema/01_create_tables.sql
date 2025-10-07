@@ -1,4 +1,4 @@
--- database/modulo_1/schema/01_table_creation.sql
+-- database/modulo_1/schema/01_create_tables.sql
 /*
  * Script: Creción de tablas
  * Descripción:
@@ -35,7 +35,7 @@ create table bitacora_productos(
     descripcion 	varchar(100),
     precio_unitario decimal(10,2),
     fecha_hora		timestamp default current_timestamp,
-    usuario 		varchar(50),
+    usuario		    varchar(100),
     operacion		enum('INSERT', 'UPDATE', 'DELETE')
 );
 create table bitacora_ventas_enc(
@@ -43,6 +43,6 @@ create table bitacora_ventas_enc(
     id_venta	int,
     total		decimal(10,2),
     fecha_hora	timestamp default current_timestamp,
-    usuario		varchar(50),
+    usuario	    varchar(100),
     operacion	enum('INSERT', 'UPDATE', 'DELETE')
 );

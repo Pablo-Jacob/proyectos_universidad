@@ -78,52 +78,6 @@ const VentasController = {
                 error: error.message
             });
         }
-    },
-    /**
-     * Actualizar venta
-     */
-    actualizarVenta: async(req, res) => {
-        try {
-            const { id } = req.params;
-            const { fecha } = req.body;
-            
-            const resultado = await ventas_model.actualizarVenta(
-                parseInt(id),
-                fecha
-            );
-            res.json({
-                success: true,
-                data: resultado
-            });
-        }
-        catch(error) {
-            res.status(400).json({
-                success: false,
-                error: error.message
-            });
-        }
-    },
-    /**
-     * Eliminar venta
-     */
-    eliminarVenta: async(req, res) => {
-        try {
-            const { id } = req.params;
-            
-            const resultado = await ventas_model.eliminarVenta(
-                parseInt(id)
-            );
-            res.json({
-                success: true,
-                data: resultado
-            });
-        }
-        catch(error) {
-            res.status(400).json({
-                success: false,
-                error: error.message
-            });
-        }
     }
 };
 module.exports = VentasController;
