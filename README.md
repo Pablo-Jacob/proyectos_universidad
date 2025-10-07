@@ -1,23 +1,33 @@
 # Integrated Management System (IMS)
 
-Proyecto académico de backend con **Node.js + MySQL**, enfocado en la gestión de productos, ventas y control de existencias.  
+Proyecto académico de backend con **Node.js + MySQL**, enfocado en la gestión de productos, ventas, compras, control de existencias y autenticación de usuarios.  
 Incluye procedimientos almacenados, triggers y una arquitectura modular que facilita la escalabilidad hacia más módulos.
 
 ---
 
 ## 🚀 Tecnologías
 - Node.js (Express.js)
+
 - MySQL (con procedimientos almacenados y triggers)
+
 - Dotenv (variables de entorno)
+
 - MySQL2 (conexión asíncrona a la base de datos)
 
 ---
 
 ## 📌 Descripción del proyecto
 Este proyecto permite gestionar productos y ventas de manera modular, con:
-- **Módulo Ventas:** crear, listar y consultar ventas.
-- **Módulo Productos:** agregar, actualizar y eliminar productos.
-- **Módulo Existencias:** control de stock y disponibilidad.
+- **Módulo Productos:** Agregar, actualizar y eliminar productos.
+
+- **Módulo Ventas:** Crear, listar y consultar ventas.
+
+- **Módulo Compras:** Registrar compras y actualizar existencias autómaticamente.
+
+- **Módulo Existencias:** Control de stock y disponibilidad.
+
+- **Módulo Usuario:** Registro, autenticación y asignación de roles.
+
 - Base de datos optimizada con procedimientos almacenados y triggers para mantener integridad de datos.
 
 ---
@@ -50,6 +60,7 @@ PORT=3000
 ## ▶️ Ejecutar el servidor
 ```bash
 npm start
+node src/server.js
 ```
 
 ## 🧰 Git & Convenciones
@@ -57,20 +68,25 @@ npm start
 
 - .gitignore configurado para proteger archivos sensibles (.env) y dependencias (node_modules).
 
-- Flujo recomendado:
-
-  1. Crear rama de feature: git checkout -b feature/nombre-feature
-
-  2. Hacer commits claros: git commit -m "feat(modulo-ventas): crear venta"
-
-  3. Hacer push y Pull Request hacia main.
-
 ## 🧪 Pruebas
-- Crear ventas usando Postman: POST /api/ventas
+Puedes probar los endpoints principales usando **Postman**:
 
-- Consultar productos: GET /api/productos
+- **Productos:**
+  - `GET /api/productos` -> Listar Productos.
 
-- Recomendación: iniciar el servidor y tener la base de datos corriendo.
+- **Ventas:**
+  - `POST /api/ventas` -> Registrar una Venta.
+- **Compras:**
+  - `POST /api/compras` -> Registrar una Compra.
+
+- **Existencias:**
+  - `POST /api/existencias` -> Consultar disponibilidad de Producto.
+
+- **Usuarios:**
+  - `POST /api/usuarios` -> Registrar Usuario.
+  - `GET /api/usuarios` -> Listar Usuarios.
+
+- **Recomendación:** inicia el servidor (`npm start o node src/server.js`) y asgúrate de que la base de datos esté en ejecución.
 
 ## 👨‍🏫 Nota académica
 Este proyecto forma parte de un curso universitario y refuerza:
@@ -79,3 +95,5 @@ Este proyecto forma parte de un curso universitario y refuerza:
 - La integración de Node.js con MySQL.
 
 - La organización de proyectos backend en capas (config, models, controllers, routes).
+
+- Pruebas de endpoints con Postman.
